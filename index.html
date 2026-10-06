@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Gõ — Telex offline</title>
+<style>
+:root{--ink:#15232d;--muted:#65717b;--line:#dce2e7;--paper:#fff;--bg:#f3f6f8;--blue:#155aca;--soft:#eaf1ff;--red:#b22d35;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);font-size:16px}
+*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}button:disabled{opacity:.38;cursor:default}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #86b3ff;outline-offset:3px}button{border:1px solid var(--line);background:white;border-radius:8px;padding:9px 13px;min-height:40px;white-space:nowrap}button:hover:not(:disabled){background:#f1f5fb;border-color:#b6c9e8}.primary{color:white;background:var(--blue);border-color:var(--blue)}.primary:hover:not(:disabled){background:#114aab}.quiet{background:transparent;border-color:transparent}.small{font-size:.875rem;min-height:34px;padding:5px 10px}.danger{color:var(--red)}
+.app{max-width:1440px;margin:auto;padding:0 28px;height:100vh;height:100dvh;min-height:380px;display:flex;flex-direction:column}header{min-height:82px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:14px 0}.brand{font-size:2rem;letter-spacing:-1.6px;font-weight:780;line-height:1}.brand span{color:var(--blue)}.offline{font-size:.75rem;letter-spacing:.07em;font-weight:650;color:var(--muted);border-left:1px solid var(--line);padding-left:20px}.top-actions{display:flex;gap:8px;margin-left:auto;align-items:center}.language{display:flex;background:#e4eaf0;border-radius:9px;padding:3px;gap:2px}.language button{border:0;background:transparent;padding:7px 12px;min-height:34px;font-size:.875rem;color:#53616d}.language button[aria-pressed=true]{background:white;box-shadow:0 1px 4px #14294417;color:var(--blue);font-weight:650}
+.workspace{flex:1;min-height:0;background:white;border:1px solid var(--line);border-radius:13px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 24px #1b354805}.document-bar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line)}#filename{min-width:0;width:250px;flex-shrink:1;border:0;background:transparent;font-weight:650;padding:5px 0;outline-offset:2px}.document-options{display:flex;align-items:center;gap:10px;font-size:.875rem}.document-options select{border:1px solid var(--line);padding:7px;border-radius:7px;background:white;max-width:140px}.views{display:flex;gap:2px}.views button{border:0;background:transparent;color:var(--muted);font-size:.875rem;padding:7px 10px;min-height:34px}.views button[aria-pressed=true]{color:var(--blue);background:var(--soft)}.toolbar{display:flex;align-items:center;gap:3px;padding:7px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap;min-height:49px}.toolbar button{border:0;background:transparent;min-width:34px;font-size:.875rem;padding:5px 9px;min-height:32px}.toolbar .separator{height:20px;width:1px;background:var(--line);margin:0 7px}.toolbar .right{margin-left:auto;display:flex;gap:3px}.editing{flex:1;min-height:0;display:flex;overflow:hidden}.editor-pane,.preview-pane{flex:1;min-width:0;min-height:0;position:relative}.editor-pane{display:flex;flex-direction:column}#editor{flex:1;resize:none;min-height:0;width:100%;border:0;border-radius:0;padding:32px 38px;line-height:1.8;font-size:19px;background:white;outline:none;tab-size:2;overflow:auto;overscroll-behavior:contain;letter-spacing:.01em}#editor::placeholder{color:#97a3ae}.preview-pane{overflow:auto;padding:30px 38px;border-left:1px solid var(--line);background:#fcfdfe}.pane-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px}.preview{line-height:1.8;overflow-wrap:anywhere}.preview h1,.preview h2,.preview h3,.preview h4,.preview h5,.preview h6{line-height:1.35;letter-spacing:-.025em;margin:1.2em 0 .5em}.preview>:first-child{margin-top:0}.preview h1{font-size:2em}.preview h2{font-size:1.5em}.preview h3{font-size:1.25em}.preview p{margin:.7em 0}.preview ul,.preview ol{padding-left:1.5em}.preview blockquote{border-left:3px solid var(--blue);margin:1em 0;padding:1px 18px;color:#586879}.preview pre{background:#eff3f7;padding:16px;border-radius:8px;overflow:auto;line-height:1.5}.preview code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.875em;background:#edf1f5;padding:2px 4px;border-radius:3px}.preview pre code{padding:0;background:transparent}.preview a{color:var(--blue)}.preview hr{border:0;border-top:1px solid var(--line);margin:1.5em 0}.preview table{border-collapse:collapse;display:block;overflow:auto;font-size:.875em}.preview td,.preview th{padding:7px 12px;border:1px solid var(--line)}.preview th{background:#eff3f7}.preview .task{list-style:none}.preview .task span{color:var(--blue);margin-right:8px}.preview .empty{color:#8896a2;font-size:.9375rem}.editing[data-view=edit] .preview-pane{display:none}.editing[data-view=preview] .editor-pane{display:none}.editing[data-view=preview] .preview-pane{border-left:0}.editing[data-mode=plain] .preview{white-space:pre-wrap}
+.status-bar{display:flex;gap:16px;align-items:center;padding:10px 20px;border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);min-height:38px}.status-bar .save{margin-left:auto}#composition-label{color:var(--blue);max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 max(14px,env(safe-area-inset-bottom))}.hint{color:var(--muted);font-size:.8125rem;line-height:1.5}.bottom-actions{display:flex;gap:8px}.error{color:var(--red)!important}[hidden]{display:none!important}
+dialog{border:1px solid var(--line);border-radius:14px;padding:0;color:var(--ink);max-height:88vh;max-width:calc(100vw - 28px);width:760px;box-shadow:0 20px 80px #071b3b36;background:white}dialog::backdrop{background:#18263565;backdrop-filter:blur(2px)}.dialog-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:16px 22px}.dialog-header h2{margin:0;font-size:1.15rem}.dialog-body{padding:22px;overflow:auto;max-height:calc(88vh - 150px)}.dialog-footer{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;padding:14px 22px;border-top:1px solid var(--line)}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:24px}.setting{display:flex;align-items:center;gap:10px;font-size:.9375rem}.setting input[type=checkbox]{width:19px;height:19px;accent-color:var(--blue)}.setting select{padding:7px;border:1px solid var(--line);border-radius:7px;max-width:100%}.setting.column{flex-direction:column;align-items:flex-start;gap:7px}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 5px}.section-heading h3{margin:0;font-size:1rem}.muted{color:var(--muted);font-size:.875rem;line-height:1.6}.replacement-row{display:grid;grid-template-columns:22px 145px 1fr 35px;gap:8px;align-items:start;padding:10px 0;border-bottom:1px solid #eef1f4}.replacement-row input[type=checkbox]{margin-top:11px;accent-color:var(--blue);width:18px;height:18px}.replacement-row input[type=text],.replacement-row textarea{padding:8px;border:1px solid var(--line);border-radius:6px;width:100%;font-size:.875rem}.replacement-row textarea{resize:vertical;min-height:40px;line-height:1.5}.replacement-row button{padding:5px;min-width:35px}.config-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.field-labels{display:grid;grid-template-columns:22px 145px 1fr 35px;gap:8px;font-size:.75rem;color:var(--muted);margin-top:14px}.dialog-body h3{font-size:1rem;margin-top:24px}.key-table{border-collapse:collapse;width:100%;font-size:.875rem}.key-table td{border-bottom:1px solid #e8edf1;padding:9px 7px;line-height:1.5}.key-table td:first-child{font-weight:600;width:35%}.notice{background:var(--soft);border-left:3px solid var(--blue);padding:12px 15px;font-size:.875rem;line-height:1.65;border-radius:0 6px 6px 0}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);border:1px solid #cfdae8;background:#152f4c;color:white;padding:12px 20px;border-radius:10px;box-shadow:0 6px 30px #11263e25;font-size:.875rem;z-index:5;max-width:calc(100vw - 30px);width:max-content}
+@media(min-width:1000px){.editing[data-view=edit] #editor{padding-left:max(38px,calc((100% - 820px)/2));padding-right:max(38px,calc((100% - 820px)/2))}}
+@media(max-width:700px){.app{padding:0 12px}header{gap:12px;min-height:72px;padding:12px 0}.brand{font-size:1.8rem}.offline{display:none}.top-actions{gap:4px}.top-actions>button{padding:7px 9px;font-size:.8125rem}.language button{padding:7px 9px;font-size:.8125rem}.document-bar{padding:10px 13px;flex-wrap:wrap;gap:7px}#filename{width:100%;flex:1;min-width:120px}.document-options{gap:4px;flex-wrap:wrap}.document-options select{max-width:120px;font-size:.8125rem}.views button{padding:6px 7px;font-size:.8125rem}.toolbar{padding:5px 8px;gap:0}.toolbar button{min-width:30px;padding:5px 7px}.toolbar .separator{margin:0 4px}#editor{padding:20px 18px;font-size:18px}.preview-pane{padding:20px 18px}.editing[data-view=split]{flex-direction:column}.editing[data-view=split] .editor-pane,.editing[data-view=split] .preview-pane{flex:1;min-height:80px}.editing[data-view=split] .preview-pane{border-left:0;border-top:1px solid var(--line)}.status-bar{padding:9px 12px;gap:9px;font-size:.6875rem}.status-bar .count-detail{display:none}#composition-label{max-width:110px}.bottom{padding-top:10px;padding-bottom:max(10px,env(safe-area-inset-bottom));align-items:flex-start}.hint{font-size:.75rem;max-width:190px}.bottom-actions button{padding:8px 10px;font-size:.875rem}.settings-grid{grid-template-columns:1fr}.replacement-row,.field-labels{grid-template-columns:22px 92px 1fr 30px;gap:6px}.dialog-body{padding:16px}.dialog-header,.dialog-footer{padding:13px 16px}}
+@media print{header,.document-bar,.toolbar,.status-bar,.bottom,.pane-label{display:none}.app{height:auto;display:block;padding:0}.workspace,.editing,.preview-pane{display:block;border:0;overflow:visible;box-shadow:none}.editor-pane{display:none!important}.preview-pane{padding:0;background:white}.preview a{color:inherit}body{background:white}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand" aria-label="Gõ">Gõ<span>.</span></div><div class="offline">TELEX / OFFLINE</div>
+    <div class="top-actions">
+      <div class="language" aria-label="Chế độ bàn phím"><button id="vi-mode" aria-pressed="true" title="Bật Telex (F2)">Tiếng Việt</button><button id="en-mode" aria-pressed="false" title="Tắt Telex (F2)">English</button></div>
+      <button id="settings-btn" title="Gõ tắt và cấu hình">Cấu hình</button><button id="help-btn" aria-label="Hướng dẫn" title="Hướng dẫn">?</button>
+    </div>
+  </header>
+  <main class="workspace">
+    <div class="document-bar">
+      <input id="filename" value="Chưa đặt tên" aria-label="Tên tài liệu" maxlength="100" spellcheck="false">
+      <div class="document-options">
+        <select id="format" aria-label="Định dạng tài liệu"><option value="markdown">Markdown</option><option value="plain">Văn bản</option></select>
+        <div class="views" aria-label="Chế độ xem"><button data-view="edit" aria-pressed="true">Soạn</button><button data-view="split" aria-pressed="false">Cả hai</button><button data-view="preview" aria-pressed="false">Xem</button></div>
+      </div>
+    </div>
+    <div class="toolbar" aria-label="Công cụ soạn thảo">
+      <button data-format="bold" aria-label="In đậm" title="In đậm"><b>B</b></button><button data-format="italic" aria-label="In nghiêng" title="In nghiêng"><i>I</i></button><button data-format="heading" title="Tiêu đề">H</button><span class="separator"></span>
+      <button data-format="list" title="Danh sách">• List</button><button data-format="quote" title="Trích dẫn">“ ”</button><button data-format="code" title="Mã nội dòng">&lt;/&gt;</button><button data-format="link" title="Liên kết">Link</button>
+      <div class="right"><button id="undo-btn" title="Undo (⌘/Ctrl+Z)" aria-label="Hoàn tác" disabled>↶</button><button id="redo-btn" title="Redo (⌘/Ctrl+Shift+Z)" aria-label="Làm lại" disabled>↷</button><span class="separator"></span><button id="open-btn">Mở file</button></div>
+    </div>
+    <div class="editing" id="editing" data-view="edit" data-mode="markdown">
+      <div class="editor-pane"><textarea id="editor" aria-label="Nội dung tài liệu" placeholder="Bắt đầu gõ…&#10;&#10;Tieengs Vieetj → Tiếng Việt" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off" inputmode="text"></textarea></div>
+      <section class="preview-pane" aria-label="Xem trước"><div class="pane-label">Xem trước</div><div class="preview" id="preview"></div></section>
+    </div>
+    <div class="status-bar"><span id="count">0 từ</span><span class="count-detail" id="chars">0 ký tự</span><span id="composition-label"></span><span class="save" id="save-status" role="status">Nháp tự lưu</span></div>
+  </main>
+  <footer class="bottom"><div class="hint" id="hint">Dùng bàn phím English / ABC.<br>F2: đổi chế độ · Esc: trả chữ gốc</div><div class="bottom-actions"><button id="copy-btn">Sao chép</button><button id="download-btn" class="primary">Tải .md</button></div></footer>
+</div>
+<input id="text-file" type="file" accept=".txt,.md,.markdown,text/plain,text/markdown" hidden>
+<input id="config-file" type="file" accept=".json,application/json" hidden>
+<dialog id="settings-dialog" aria-labelledby="settings-title">
+ <div class="dialog-header"><h2 id="settings-title">Bàn phím & gõ tắt</h2><button class="quiet" data-close="settings-dialog" aria-label="Đóng">✕</button></div>
+ <div class="dialog-body">
+  <div class="settings-grid">
+   <label class="setting"><input id="cfg-telex" type="checkbox">Bật Telex</label>
+   <label class="setting"><input id="cfg-shortcuts" type="checkbox">Bật text replacement</label>
+   <label class="setting"><input id="cfg-english" type="checkbox">Gõ tắt cả khi dùng English</label>
+   <label class="setting"><input id="cfg-case" type="checkbox">Phân biệt chữ hoa / thường</label>
+   <label class="setting column">Vị trí dấu<select id="cfg-tone"><option value="classic">Cổ điển — hòa, khỏe, thủy</option><option value="modern">Kiểu mới — hoà, khoẻ, thuỷ</option></select></label>
+   <label class="setting column">Cỡ chữ<select id="cfg-size"><option value="16">16 px</option><option value="18">18 px</option><option value="19">19 px</option><option value="20">20 px</option><option value="22">22 px</option><option value="24">24 px</option><option value="28">28 px</option></select></label>
+  </div>
+  <div class="section-heading"><h3>Text replacement</h3><button id="add-replacement" class="small">+ Thêm</button></div>
+  <p class="muted">Gõ chuỗi tắt rồi nhấn Space, Enter hoặc dấu câu. Nội dung thay thế có thể có nhiều dòng. Chuỗi có tiền tố như “;sig” giúp tránh đụng từ thông thường.</p>
+  <div class="field-labels"><span></span><span>Chuỗi tắt</span><span>Thay bằng</span><span></span></div><div id="replacement-list"></div>
+  <div class="config-tools"><button id="import-config" class="small">Import JSON</button><button id="export-config" class="small">Export JSON</button></div>
+  <p class="muted">JSON chứa cấu hình và gõ tắt, không chứa tài liệu. Import thay toàn bộ cấu hình sau khi bạn nhấn Lưu.</p>
+  <p id="config-error" class="error muted" role="alert" hidden></p>
+ </div>
+ <div class="dialog-footer"><button data-close="settings-dialog">Huỷ</button><button id="save-config" class="primary">Lưu cấu hình</button></div>
+</dialog>
+<dialog id="help-dialog" aria-labelledby="help-title">
+ <div class="dialog-header"><h2 id="help-title">Gõ tiếng Việt, offline</h2><button class="quiet" data-close="help-dialog" aria-label="Đóng">✕</button></div>
+ <div class="dialog-body">
+  <div class="notice">Chọn bàn phím <b>English / ABC</b> của hệ điều hành, rồi bật <b>Tiếng Việt</b> ở đây. Tránh bật hai bộ gõ Telex cùng lúc. Trên điện thoại, tắt autocorrect của bàn phím nếu nó tự sửa các chuỗi Telex.</div>
+  <h3>Telex</h3><table class="key-table"><tbody>
+   <tr><td>aa · aw · ee · oo</td><td>â · ă · ê · ô</td></tr><tr><td>ow · uw · uow · dd</td><td>ơ · ư · ươ · đ</td></tr><tr><td>s · f · r · x · j</td><td>Sắc · huyền · hỏi · ngã · nặng</td></tr><tr><td>z</td><td>Xoá dấu thanh: toansz → toan</td></tr><tr><td>tieengs Vieetj</td><td>Tiếng Việt</td></tr><tr><td>dduwowngf / dduowngf</td><td>đường</td></tr><tr><td>Gõ lặp</td><td>aaa → aa, ass → as, guitarr → guitar</td></tr><tr><td>Đổi dấu</td><td>toanfs → toán</td></tr>
+  </tbody></table>
+  <p class="muted">Hỗ trợ dấu ở cuối từ, tự chuyển vị trí dấu khi thêm chữ, chữ hoa và Unicode NFC. Bàn phím gom chữ qua composition sẽ chuyển Telex khi chốt từ; composition có dấu tiếng Việt được giữ nguyên. Đây là Telex cơ bản; không có bộ kiểm tra chính tả hoặc tự đoán tiếng Anh. Không dùng phím “[”, “]” hay “w” đơn lẻ để tạo nguyên âm, để giữ cú pháp Markdown.</p>
+  <h3>Soạn thảo</h3><table class="key-table"><tbody><tr><td>F2 / nút chế độ</td><td>Bật / tắt Telex</td></tr><tr><td>Escape</td><td>Trả từ đang gõ về chuỗi phím gốc và giữ nguyên cho tới hết từ</td></tr><tr><td>⌘ / Ctrl + Z</td><td>Hoàn tác; Shift + Z làm lại. Điện thoại dùng nút ↶ / ↷.</td></tr><tr><td>⌘ / Ctrl + S</td><td>Tải tài liệu .md / .txt</td></tr><tr><td>Tab</td><td>Chèn 2 dấu cách; Shift + Tab đi tới nút kế tiếp</td></tr></tbody></table>
+  <p class="muted">Markdown là editor mã nguồn với preview: tiêu đề, đậm/nghiêng, danh sách, checklist, trích dẫn, code, link và bảng cơ bản. Không phải editor WYSIWYG. HTML trong tài liệu hiển thị như văn bản; hình ảnh không tải từ mạng. Paste và import giữ nguyên, không chạy lại Telex.</p>
+  <h3>Mở file</h3><p class="muted"><b>macOS / Windows / Linux:</b> tải go-viet.html rồi mở bằng Safari, Chrome, Firefox hoặc Edge. Không cần cài package, server hay kết nối mạng.</p>
+  <p class="muted"><b>iPhone / iPad:</b> Files / Quick Look có thể chỉ xem trước HTML, không chạy ứng dụng. Cần app mở HTML có hỗ trợ JavaScript / WebView, hoặc phục vụ file qua một địa chỉ HTTP rồi mở trong Safari. File tự nó không cài thành PWA. Bố cục và bộ gõ hỗ trợ màn hình cảm ứng, nhưng chưa kiểm thử trên thiết bị iOS thực.</p>
+  <h3>Lưu nháp & riêng tư</h3><p class="muted">Không gửi nội dung qua mạng. Nháp và cấu hình dùng localStorage của trình duyệt khi khả dụng; không ghi ngược vào file HTML. Chế độ riêng tư, đổi trình duyệt, đổi vị trí file hoặc xoá dữ liệu có thể làm mất nháp. Tải .md / .txt và export JSON để có bản sao bền vững. Không có đồng bộ giữa máy.</p>
+  <p class="muted">Giới hạn: tài liệu mở tối đa 2 MiB; cấu hình 1 MiB / 500 gõ tắt. Undo giữ tối đa 300 thao tác / khoảng 4 MiB dữ liệu thay đổi, chỉ trong phiên đang mở.</p>
+  <p class="muted">Gõ v1.0 · Mã nguồn nằm ngay trong file này. Có thể sử dụng, sửa và chia sẻ theo giấy phép MIT. Copyright © 2026. Quy tắc Telex tham khảo <a href="https://www.unikey.org/support/ukmanual.html" target="_blank" rel="noopener noreferrer">tài liệu UniKey</a>.</p>
+  <details><summary class="muted">Giấy phép MIT</summary><p class="muted">Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></details>
+ </div><div class="dialog-footer"><button class="primary" data-close="help-dialog">Bắt đầu gõ</button></div>
+</dialog>
+<noscript><p style="padding:20px">Trang này cần JavaScript. Nếu đang xem từ Files trên iPhone, hãy mở bằng app hỗ trợ HTML / JavaScript hoặc qua một địa chỉ web.</p></noscript>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+/* Gõ v1.0 — single-file, offline. MIT License (full text in Help). */
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const editor = $('editor');
+const CONFIG_KEY = 'go-viet.config.v1', DOC_KEY = 'go-viet.document.v1';
+const defaults = {app:'go-viet',version:1,settings:{telex:true,shortcuts:true,shortcutsInEnglish:true,caseSensitive:false,toneStyle:'classic',fontSize:19},replacements:[{trigger:';vn',value:'Việt Nam',enabled:true},{trigger:';sig',value:'Trân trọng,\n',enabled:true},{trigger:';ty',value:'Cảm ơn bạn!',enabled:true}]};
+const clone = value => JSON.parse(JSON.stringify(value));
+let config = clone(defaults), active = null, snapshot = null, composing = false, compositionBefore = null, lastText = '', view = 'edit', dirtyTimer, toastTimer, draftName = 'Chưa đặt tên', draftFormat = 'markdown', storageOK = true, history = [], future = [], historyBytes = 0;
+// The canonical vowel table doubles as a lookup for tone extraction / NFC output.
+const vowelRows = ['aáàảãạ','ăắằẳẵặ','âấầẩẫậ','eéèẻẽẹ','êếềểễệ','iíìỉĩị','oóòỏõọ','ôốồổỗộ','ơớờởỡợ','uúùủũụ','ưứừửữự','yýỳỷỹỵ'];
+const vowelMap = new Map();
+vowelRows.forEach(row => [...row].forEach((ch,t) => vowelMap.set(ch,{base:row[0],tone:t})));
+const toneKeys = {s:1,f:2,r:3,x:4,j:5};
+const wordChar = ch => !!ch && /[\p{L}\p{M}]/u.test(ch);
+const caseLike = (value, original) => original !== original.toLowerCase() ? value.toUpperCase() : value;
+const vowelBase = ch => vowelMap.get(ch.toLowerCase())?.base || ch.toLowerCase();
+function tonePosition(chars,style='classic') {
+  let ids=[];
+  chars.forEach((c,i) => {if(vowelMap.has(c.toLowerCase())) ids.push(i);});
+  if(!ids.length) return -1;
+  // u in qu and i in gi are glides when another vowel follows.
+  if(ids.length>1 && ids[0]===1 && ((chars[0].toLowerCase()==='q' && vowelBase(chars[1])==='u') || (chars[0].toLowerCase()==='g' && vowelBase(chars[1])==='i'))) ids.shift();
+  const shaped=ids.filter(i => /[ăâêôơư]/.test(vowelBase(chars[i])));
+  if(shaped.length) {const hornO=shaped.find(i=>vowelBase(chars[i])==='ơ');return hornO??shaped[shaped.length-1];}
+  if(ids.length===1) return ids[0];
+  if(ids.length>=3) return ids[ids.length-2];
+  const pair=ids.map(i=>vowelBase(chars[i])).join('');
+  const closed=ids[ids.length-1]<chars.length-1;
+  if(closed || (style==='modern' && ['oa','oe','uy'].includes(pair))) return ids[1];
+  return ids[0];
+}
+function telex(raw,style='classic') {
+  let chars=[],tone=0,lastAction=null;
+  for(const original of raw.normalize('NFC')) {
+    const k=original.toLowerCase();
+    const existing=vowelMap.get(k);
+    if(existing && existing.tone) {chars.push(caseLike(existing.base,original));tone=existing.tone;lastAction=null;continue;}
+    const target=tonePosition(chars,style);
+    if(Object.hasOwn(toneKeys,k) && target>=0) {
+      if(lastAction?.type==='tone' && lastAction.key===k) {tone=0;chars.push(original);lastAction=null;}
+      else {tone=toneKeys[k];lastAction={type:'tone',key:k};}
+      continue;
+    }
+    if(k==='z' && tone && target>=0) {tone=0;lastAction=null;continue;}
+    if(lastAction?.type==='shape' && lastAction.key===k) {
+      for(const [i,before] of lastAction.changed) chars[i]=before;
+      chars.push(original);lastAction=null;continue;
+    }
+    let changes=[];
+    const change=(i,to)=> {changes.push([i,chars[i]]);chars[i]=caseLike(to,chars[i]);};
+    if(k==='d') {
+      for(let i=chars.length-1;i>=0;i--) {if(chars[i].toLowerCase()==='d'){change(i,'đ');break;} if(vowelMap.has(chars[i].toLowerCase())) break;}
+    } else if(['a','e','o'].includes(k)) {
+      // Circumflex can be entered after the coda, but not after another vowel.
+      for(let i=chars.length-1;i>=0;i--) {const b=vowelBase(chars[i]);if(vowelMap.has(chars[i].toLowerCase())) {if(b===k)change(i,{a:'â',e:'ê',o:'ô'}[k]);break;}}
+    } else if(k==='w') {
+      let i=-1;for(let j=chars.length-1;j>=0;j--){if(vowelMap.has(chars[j].toLowerCase())){i=j;break;}}
+      if(i>=0) {
+        const b=vowelBase(chars[i]);
+        if(['o','ơ'].includes(b) && i>0 && ['u','ư'].includes(vowelBase(chars[i-1])) && !(i===2 && chars[0].toLowerCase()==='q')) {
+          if(vowelBase(chars[i-1])==='u')change(i-1,'ư');if(b==='o')change(i,'ơ');
+        } else if(['a','o','u'].includes(b)) change(i,{a:'ă',o:'ơ',u:'ư'}[b]);
+      }
+    }
+    if(changes.length){lastAction={type:'shape',key:k,changed:changes};continue;}
+    chars.push(original);lastAction=null;
+    // Once a coda follows uơ / ưo, complete the horn pair; leave thuở alone.
+    if(!vowelMap.has(k)) {
+      for(let i=1;i<chars.length-1;i++) {
+        const pair=vowelBase(chars[i-1])+vowelBase(chars[i]);
+        if((pair==='uơ' || pair==='ưo') && !(i===2 && chars[0].toLowerCase()==='q')) {chars[i-1]=caseLike('ư',chars[i-1]);chars[i]=caseLike('ơ',chars[i]);}
+      }
+    }
+  }
+  // Open syllables huơ / thuở keep u plain unless uw was explicitly typed.
+  const spelling=chars.map(c=>c.toLowerCase()).join('');
+  if(['hươ','thươ'].includes(spelling) && !/uw/i.test(raw)) {const i=chars.findIndex(c=>c.toLowerCase()==='ư');chars[i]=caseLike('u',chars[i]);}
+  const idx=tonePosition(chars,style);
+  if(tone && idx>=0) {const row=vowelRows.find(row=>row[0]===chars[idx].toLowerCase());chars[idx]=caseLike(row[tone],chars[idx]);}
+  return chars.join('').normalize('NFC');
+}
+function validateConfig(data) {
+  if(!data || typeof data!=='object' || data.app!=='go-viet' || data.version!==1) throw Error('Cần JSON cấu hình Gõ, version 1.');
+  const s=data.settings;
+  if(!s || typeof s!=='object')throw Error('Thiếu settings.');
+  for(const key of ['telex','shortcuts','shortcutsInEnglish','caseSensitive'])if(typeof s[key]!=='boolean')throw Error('Settings không hợp lệ: '+key);
+  if(!['classic','modern'].includes(s.toneStyle))throw Error('toneStyle phải là classic hoặc modern.');
+  if(![16,18,19,20,22,24,28].includes(s.fontSize))throw Error('Cỡ chữ không được hỗ trợ.');
+  if(!Array.isArray(data.replacements) || data.replacements.length>500)throw Error('Tối đa 500 gõ tắt.');
+  const seen=new Set();
+  const replacements=data.replacements.map((r,i)=> {
+    if(!r || typeof r.trigger!=='string' || !r.trigger.length || r.trigger.length>60 || /[\s\p{C}]/u.test(r.trigger))throw Error('Chuỗi tắt dòng '+(i+1)+' phải có 1–60 ký tự, không có khoảng trắng.');
+    if(typeof r.value!=='string' || r.value.length>10000 || typeof r.enabled!=='boolean')throw Error('Nội dung dòng '+(i+1)+' không hợp lệ (tối đa 10.000 ký tự).');
+    const trigger=r.trigger.normalize('NFC');const key=s.caseSensitive?trigger:trigger.toLowerCase();
+    if(seen.has(key))throw Error('Chuỗi tắt bị trùng: '+trigger);seen.add(key);
+    return {trigger,value:r.value,enabled:r.enabled};
+  });
+  return {app:'go-viet',version:1,settings:{telex:s.telex,shortcuts:s.shortcuts,shortcutsInEnglish:s.shortcutsInEnglish,caseSensitive:s.caseSensitive,toneStyle:s.toneStyle,fontSize:s.fontSize},replacements};
+}
+// Always escape source. Raw HTML and remote images are deliberately inert.
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function inlineMarkdown(source) {
+  const tokens=[];
+  const token=html=>{tokens.push(html);return '\u0000'+(tokens.length-1)+'\u0000';};
+  let text=escapeHTML(source.replace(/\u0000/g,''));
+  text=text.replace(/`([^`\n]+)`/g,(_,code)=>token('<code>'+code+'</code>'));
+  text=text.replace(/!?\[([^\]\n]+)\]\(([^\s)]+)\)/g,(whole,label,url)=> {
+    // Check before HTML entities are decoded: allow only explicit safe schemes.
+    if(!/^(https?:\/\/|mailto:)/i.test(url))return whole;
+    return token('<a href="'+url+'" target="_blank" rel="noopener noreferrer">'+label+'</a>');
+  });
+  text=text.replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>').replace(/__([^_\n]+)__/g,'<strong>$1</strong>').replace(/\*([^*\n]+)\*/g,'<em>$1</em>').replace(/(^|\s)_([^_\n]+)_(?=\s|$|[.,!?])/g,'$1<em>$2</em>').replace(/~~([^~\n]+)~~/g,'<del>$1</del>');
+  return text.replace(/\u0000(\d+)\u0000/g,(_,i)=>tokens[+i]);
+}
+function markdown(source) {
+  const lines=source.replace(/\r\n?/g,'\n').split('\n');let out=[],i=0;
+  const isBlock=s=>/^(#{1,6}\s|\s*```|\s*~~~|>\s?|\s*[-*+]\s|\s*\d+\.\s|\s*$|\s*(?:---+|\*\*\*+)\s*$)/.test(s);
+  const cells=s=>s.trim().replace(/^\||\|$/g,'').split('|').map(c=>c.trim());
+  while(i<lines.length) {
+    const line=lines[i];let match;
+    if(!line.trim()){i++;continue;}
+    if((match=line.match(/^\s*(`{3,}|~{3,})(.*)$/))) {
+      const fence=match[1];const code=[];i++;
+      while(i<lines.length && !new RegExp('^\\s*'+fence[0]+'{'+fence.length+',}\\s*$').test(lines[i])) code.push(lines[i++]);
+      if(i<lines.length)i++;out.push('<pre><code>'+escapeHTML(code.join('\n'))+'</code></pre>');continue;
+    }
+    if((match=line.match(/^(#{1,6})\s+(.+?)\s*#*$/))){out.push('<h'+match[1].length+'>'+inlineMarkdown(match[2])+'</h'+match[1].length+'>');i++;continue;}
+    if(/^\s*(?:---+|\*\*\*+)\s*$/.test(line)){out.push('<hr>');i++;continue;}
+    if(/^>/.test(line)){const block=[];while(i<lines.length && /^>/.test(lines[i]))block.push(lines[i++].replace(/^> ?/,''));out.push('<blockquote>'+markdown(block.join('\n'))+'</blockquote>');continue;}
+    if(/^\s*([-*+]\s|\d+\.\s)/.test(line)) {
+      const ordered=/^\s*\d+\./.test(line),tag=ordered?'ol':'ul',items=[];
+      const re=ordered?/^\s*\d+\.\s+(.*)$/:/^\s*[-*+]\s+(.*)$/;
+      while(i<lines.length && (match=lines[i].match(re))) {
+        const task=match[1].match(/^\[([ xX])\]\s+(.*)$/);items.push(task?'<li class="task"><span>'+(/[xX]/.test(task[1])?'☑':'☐')+'</span>'+inlineMarkdown(task[2])+'</li>':'<li>'+inlineMarkdown(match[1])+'</li>');i++;
+      }
+      out.push('<'+tag+'>'+items.join('')+'</'+tag+'>');continue;
+    }
+    if(line.includes('|') && i+1<lines.length && /^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(lines[i+1])) {
+      const heads=cells(line);i+=2;const rows=[];
+      while(i<lines.length && lines[i].includes('|') && lines[i].trim())rows.push(cells(lines[i++]));
+      out.push('<table><thead><tr>'+heads.map(c=>'<th>'+inlineMarkdown(c)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(row=>'<tr>'+heads.map((_,j)=>'<td>'+inlineMarkdown(row[j]||'')+'</td>').join('')+'</tr>').join('')+'</tbody></table>');continue;
+    }
+    const p=[line];i++;while(i<lines.length && !isBlock(lines[i]) && !(lines[i].includes('|') && /^\s*\|?\s*:?-{3,}/.test(lines[i+1]||'')))p.push(lines[i++]);
+    out.push('<p>'+p.map(inlineMarkdown).join('<br>')+'</p>');
+  }
+  return out.join('');
+}
+function takeSnapshot(){return {text:editor.value,start:editor.selectionStart,end:editor.selectionEnd,active:active?{...active}:null};}
+function setText(text,start,end=start){const scroll=editor.scrollTop;editor.value=text;editor.setSelectionRange(start,end);editor.scrollTop=scroll;}
+function spliceText(start,end,text){const value=editor.value;setText(value.slice(0,start)+text+value.slice(end),start+text.length);}
+function diff(a,b){let start=0;while(start<a.length && start<b.length && a[start]===b[start])start++;let endA=a.length,endB=b.length;while(endA>start && endB>start && a[endA-1]===b[endB-1]){endA--;endB--;}return {at:start,removed:a.slice(start,endA),inserted:b.slice(start,endB)};}
+function commit(before){
+  if(before.text!==editor.value){const op={...diff(before.text,editor.value),before:{start:before.start,end:before.end,active:before.active},after:{start:editor.selectionStart,end:editor.selectionEnd,active:active?{...active}:null}};op.bytes=2*(op.removed.length+op.inserted.length);history.push(op);historyBytes+=op.bytes;future=[];while(history.length>300 || (historyBytes>4*1024*1024 && history.length>1)){historyBytes-=history.shift().bytes;}}
+  lastText=editor.value;snapshot=null;update();
+}
+function undo(redo=false){
+  if(composing)return;
+  const from=redo?future:history,to=redo?history:future,op=from.pop();if(!op)return;
+  if(redo)historyBytes+=op.bytes;else historyBytes-=op.bytes;
+  const old=redo?op.removed:op.inserted,replacement=redo?op.inserted:op.removed,sel=redo?op.after:op.before;
+  setText(editor.value.slice(0,op.at)+replacement+editor.value.slice(op.at+old.length),sel.start,sel.end);active=sel.active?{...sel.active}:null;to.push(op);lastText=editor.value;snapshot=null;editor.focus();update();
+}
+function transformInsert(before,data){
+  const s=config.settings;if(!s.telex || !/^[a-zA-Z]$/.test(data)){active=null;return;}
+  const pos=before.start;
+  let start=pos,raw='';
+  if(before.start===before.end && before.active && before.active.end===pos && before.text.slice(before.active.start,pos)===before.active.output){start=before.active.start;raw=before.active.raw;if(before.active.literal){active={...before.active,raw:raw+data,output:before.active.output+data,end:pos+data.length};return;}}
+  else {while(start>0 && wordChar(before.text[start-1]))start--;raw=before.text.slice(start,pos);}
+  raw+=data;
+  if(raw.length>200){active=null;return;}
+  const output=telex(raw,s.toneStyle);
+  const text=before.text.slice(0,start)+output+before.text.slice(before.end);
+  setText(text,start+output.length);active={start,end:start+output.length,raw,output,literal:false};
+}
+function transformBackspace(before){
+  const a=before.active;
+  if(!config.settings.telex || !a || before.start!==before.end || before.start!==a.end || before.text.slice(a.start,a.end)!==a.output)return false;
+  const raw=a.raw.slice(0,-1),output=a.literal?raw:telex(raw,config.settings.toneStyle);
+  setText(before.text.slice(0,a.start)+output+before.text.slice(a.end),a.start+output.length);
+  active=raw?{...a,raw,output,end:a.start+output.length}:null;return true;
+}
+function tryReplacement(before,delimiter){
+  const s=config.settings;
+  if(!s.shortcuts || (!s.telex && !s.shortcutsInEnglish) || before.start!==before.end || !/^[\s.,!?;:)\]}]$/.test(delimiter))return false;
+  let candidates=[{text:before.text.slice(0,before.start),raw:false}];
+  const a=before.active;
+  if(a && a.end===before.start && before.text.slice(a.start,a.end)===a.output)candidates.unshift({text:before.text.slice(0,a.start)+a.raw,raw:true});
+  const rules=config.replacements.filter(r=>r.enabled).sort((a,b)=>b.trigger.length-a.trigger.length);
+  for(const r of rules) for(const candidate of candidates){
+    const tail=candidate.text.slice(-r.trigger.length),match=s.caseSensitive?tail===r.trigger:tail.toLowerCase()===r.trigger.toLowerCase();
+    const prefix=candidate.text.slice(0,-r.trigger.length);
+    if(!match || /[\p{L}\p{N}\p{M}_]$/u.test(prefix))continue;
+    // Use the raw-coordinate prefix but keep the original suffix after the caret.
+    setText(prefix+r.value+delimiter+before.text.slice(before.end),prefix.length+r.value.length+delimiter.length);active=null;return true;
+  }
+  return false;
+}
+function escapeWord(){if(!active || editor.selectionStart!==active.end || editor.selectionEnd!==active.end)return;const before=takeSnapshot();const a=active;spliceText(a.start,a.end,a.raw);active={...a,end:a.start+a.raw.length,output:a.raw,literal:true};commit(before);toast('Đã trả chữ gốc.');}
+editor.addEventListener('beforeinput',e=>{
+  if(e.inputType==='historyUndo' || e.inputType==='historyRedo'){if(e.cancelable){e.preventDefault();undo(e.inputType==='historyRedo');}return;}
+  if(composing)return;
+  snapshot=takeSnapshot();
+  if(e.inputType==='deleteContentBackward' && e.cancelable && transformBackspace(snapshot)){e.preventDefault();commit(snapshot);}
+});
+editor.addEventListener('input',e=>{
+  if(composing || e.isComposing)return;
+  const before=snapshot || {text:lastText,start:0,end:0,active:null};
+  if(before.text===editor.value){snapshot=null;return;}
+  // Browsers without beforeinput still supply the edited span through a diff.
+  if(!snapshot){const d=diff(before.text,editor.value);before.start=d.at;before.end=d.at+d.removed.length;}
+  if(e.inputType==='deleteContentBackward') {if(!transformBackspace(before))active=null;}
+  else if(['insertLineBreak','insertParagraph'].includes(e.inputType)){tryReplacement(before,'\n');active=null;}
+  else if(e.inputType==='insertText' && typeof e.data==='string' && e.data.length===1){if(!tryReplacement(before,e.data))transformInsert(before,e.data);}
+  else active=null;
+  commit(before);
+});
+editor.addEventListener('compositionstart',()=>{composing=true;compositionBefore=takeSnapshot();active=null;snapshot=null;});
+function convertComposition(before){
+  const head=before.text.slice(0,before.start),tail=before.text.slice(before.end),current=editor.value;
+  if(!current.startsWith(head) || !current.endsWith(tail))return;
+  const end=current.length-tail.length,inserted=current.slice(before.start,end);
+  const match=inserted.match(/^([a-zA-Z]+)([\s.,!?;:)\]}]?)$/);
+  if(!match)return; // Native Vietnamese / non-Latin IMEs remain untouched.
+  const a=before.active;if(a?.literal && a.end===before.start)return;
+  let start=before.start,seed='';
+  if(a && a.end===before.start && before.start===before.end){start=a.start;seed=a.raw;}
+  else {while(start>0 && wordChar(before.text[start-1]))start--;seed=before.text.slice(start,before.start);}
+  const raw=seed+match[1];if(raw.length>200)return;
+  const output=config.settings.telex?telex(raw,config.settings.toneStyle):raw;
+  setText(before.text.slice(0,start)+output+tail,start+output.length);
+  active={start,end:start+output.length,raw,output,literal:false};
+  if(match[2]){const interim=takeSnapshot();if(!tryReplacement(interim,match[2]))spliceText(editor.selectionStart,editor.selectionEnd,match[2]);active=null;}
+}
+editor.addEventListener('compositionend',()=>{
+  // Let the browser deliver its final composition input before touching value.
+  setTimeout(()=>{composing=false;const before=compositionBefore || {text:lastText,start:editor.selectionStart,end:editor.selectionEnd,active:null};active=null;convertComposition(before);commit(before);compositionBefore=null;},0);
+});
+editor.addEventListener('pointerdown',()=>{active=null;});
+document.addEventListener('selectionchange',()=>{if(active && document.activeElement===editor && (editor.selectionStart!==active.end || editor.selectionEnd!==active.end)){active=null;updateComposition();}});
+editor.addEventListener('keydown',e=>{
+  if(e.isComposing || composing)return;
+  const command=e.metaKey || e.ctrlKey;
+  if(command && e.key.toLowerCase()==='z'){e.preventDefault();undo(e.shiftKey);return;}
+  if(command && e.key.toLowerCase()==='y'){e.preventDefault();undo(true);return;}
+  if(command && e.key.toLowerCase()==='s'){e.preventDefault();downloadDocument();return;}
+  if(e.key==='F2'){e.preventDefault();toggleTelex();return;}
+  if(e.key==='Escape'){e.preventDefault();escapeWord();return;}
+  if(e.key==='Tab' && !e.shiftKey){e.preventDefault();const before=takeSnapshot();if(!tryReplacement(before,'\t'))spliceText(editor.selectionStart,editor.selectionEnd,'  ');active=null;commit(before);return;}
+  if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End','PageUp','PageDown'].includes(e.key) || command){active=null;updateComposition();}
+});
+function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3000);}
+function updateComposition(){const raw=active && !active.literal && active.raw!==active.output?active.raw:'';$('composition-label').textContent=raw?raw+' → '+active.output:'';}
+let previewTimer;
+function renderPreview(){const value=editor.value;if(!value){$('preview').innerHTML='<p class="empty">Nội dung xem trước sẽ xuất hiện ở đây.</p>';return;}if(draftFormat==='plain')$('preview').textContent=value;else $('preview').innerHTML=markdown(value);}
+function update(){
+  const text=editor.value;$('count').textContent=(text.trim()?text.trim().split(/\s+/u).length:0).toLocaleString('vi-VN')+' từ';$('chars').textContent=Array.from(text).length.toLocaleString('vi-VN')+' ký tự';updateComposition();
+  $('undo-btn').disabled=!history.length;$('redo-btn').disabled=!future.length;
+  clearTimeout(previewTimer);if(view!=='edit')previewTimer=setTimeout(renderPreview,120);
+  clearTimeout(dirtyTimer);$('save-status').textContent=storageOK?'Đang lưu…':'Nháp chưa lưu';dirtyTimer=setTimeout(saveDraft,300);
+}
+function saveDraft(){
+  try{localStorage.setItem(DOC_KEY,JSON.stringify({text:editor.value,name:draftName,format:draftFormat,view}));storageOK=true;$('save-status').textContent='Đã lưu nháp';$('save-status').classList.remove('error');}
+  catch{storageOK=false;$('save-status').textContent='Nháp chưa lưu — tải file';$('save-status').classList.add('error');}
+}
+function persistConfig(){try{localStorage.setItem(CONFIG_KEY,JSON.stringify(config));return true;}catch{toast('Cấu hình chỉ giữ trong phiên này. Hãy Export JSON.');return false;}}
+function applyConfig(){
+  const s=config.settings;active=null;$('vi-mode').setAttribute('aria-pressed',String(s.telex));$('en-mode').setAttribute('aria-pressed',String(!s.telex));editor.style.fontSize=s.fontSize+'px';$('preview').style.fontSize=s.fontSize+'px';updateComposition();
+}
+function toggleTelex(value){config.settings.telex=typeof value==='boolean'?value:!config.settings.telex;applyConfig();persistConfig();editor.focus();}
+$('vi-mode').onclick=()=>toggleTelex(true);$('en-mode').onclick=()=>toggleTelex(false);
+function setView(next){view=next;$('editing').dataset.view=next;document.querySelectorAll('[data-view]').forEach(b=>{if(b.tagName==='BUTTON')b.setAttribute('aria-pressed',String(b.dataset.view===next));});if(next!=='edit')renderPreview();saveDraft();}
+document.querySelectorAll('button[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+function setFormat(next){draftFormat=next;$('format').value=next;$('editing').dataset.mode=next;document.querySelectorAll('button[data-format]').forEach(b=>b.hidden=next==='plain');$('download-btn').textContent=next==='markdown'?'Tải .md':'Tải .txt';if(view!=='edit')renderPreview();saveDraft();}
+$('format').onchange=()=>setFormat($('format').value);
+$('filename').oninput=()=>{draftName=$('filename').value;clearTimeout(dirtyTimer);dirtyTimer=setTimeout(saveDraft,300);};
+$('undo-btn').onclick=()=>undo();$('redo-btn').onclick=()=>undo(true);
+document.querySelectorAll('button[data-format]').forEach(b=>{
+  b.addEventListener('pointerdown',e=>e.preventDefault());
+  b.onclick=()=>{
+    const before=takeSnapshot(),start=editor.selectionStart,end=editor.selectionEnd,selected=editor.value.slice(start,end);let text='',selStart=start,selEnd=end;
+    const f=b.dataset.format;
+    if(['bold','italic','code','link'].includes(f)){
+      const marks={bold:['**','**'],italic:['*','*'],code:['`','`'],link:['[','](https://)']}[f];const content=selected || (f==='link'?'liên kết':'nội dung');text=marks[0]+content+marks[1];selStart=start+marks[0].length;selEnd=selStart+content.length;
+      spliceText(start,end,text);editor.setSelectionRange(selStart,selEnd);
+    }else{
+      const first=editor.value.lastIndexOf('\n',start-1)+1;const final=editor.value.indexOf('\n',end);const last=final<0?editor.value.length:final;const marker={heading:'## ',list:'- ',quote:'> '}[f];text=editor.value.slice(first,last).split('\n').map(line=>marker+line).join('\n');spliceText(first,last,text);
+    }
+    active=null;commit(before);editor.focus();
+  };
+});
+function safeFilename(name,extension){const clean=name.replace(/[<>:"/\\|?*\x00-\x1f]/g,'-').replace(/\.(md|markdown|txt)$/i,'').trim().replace(/[. ]+$/,'').slice(0,100);return (clean||'ghi-chu')+extension;}
+function download(content,name,type){
+  const blob=new Blob([content],{type});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+}
+function downloadDocument(){saveDraft();download(editor.value,safeFilename(draftName,draftFormat==='markdown'?'.md':'.txt'),'text/plain;charset=utf-8');}
+$('download-btn').onclick=downloadDocument;
+$('copy-btn').onclick=async()=>{
+  const before=takeSnapshot();
+  try{if(!navigator.clipboard?.writeText)throw Error();await navigator.clipboard.writeText(editor.value);toast('Đã sao chép.');}
+  catch{editor.focus();editor.select();try{if(document.execCommand('copy')){toast('Đã sao chép.');editor.setSelectionRange(before.start,before.end);}else toast('Nội dung đã chọn. Dùng Copy của hệ thống.');}catch{toast('Nội dung đã chọn. Dùng Copy của hệ thống.');}return;}
+  editor.setSelectionRange(before.start,before.end);
+};
+$('open-btn').onclick=()=>$('text-file').click();
+$('text-file').onchange=async()=>{
+  const file=$('text-file').files[0];$('text-file').value='';if(!file)return;
+  if(file.size>2*1024*1024){toast('Chỉ mở tài liệu tối đa 2 MiB.');return;}
+  if(editor.value && !confirm('Thay tài liệu hiện tại? Tải file trước nếu cần giữ bản cũ.'))return;
+  try{const text=(await file.text()).replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n');const before=takeSnapshot();setText(text,0);active=null;draftName=file.name.replace(/\.(txt|md|markdown)$/i,'');$('filename').value=draftName;setFormat(/\.(md|markdown)$/i.test(file.name)?'markdown':'plain');commit(before);editor.focus();toast('Đã mở '+file.name);}
+  catch{toast('Không đọc được file.');}
+};
+function addReplacementRow(r={trigger:'',value:'',enabled:true}){
+  const row=document.createElement('div');row.className='replacement-row';
+  const enabled=document.createElement('input');enabled.type='checkbox';enabled.checked=r.enabled;enabled.setAttribute('aria-label','Bật gõ tắt');
+  const trigger=document.createElement('input');trigger.type='text';trigger.value=r.trigger;trigger.placeholder=';sig';trigger.maxLength=60;trigger.spellcheck=false;trigger.autocapitalize='off';trigger.setAttribute('aria-label','Chuỗi tắt');
+  const value=document.createElement('textarea');value.value=r.value;value.rows=1;value.maxLength=10000;value.placeholder='Nội dung thay thế';value.setAttribute('aria-label','Nội dung thay thế');
+  const remove=document.createElement('button');remove.textContent='×';remove.className='quiet danger';remove.setAttribute('aria-label','Xoá gõ tắt');remove.onclick=()=>row.remove();row.append(enabled,trigger,value,remove);$('replacement-list').append(row);
+}
+function populateSettings(data){const s=data.settings;$('cfg-telex').checked=s.telex;$('cfg-shortcuts').checked=s.shortcuts;$('cfg-english').checked=s.shortcutsInEnglish;$('cfg-case').checked=s.caseSensitive;$('cfg-tone').value=s.toneStyle;$('cfg-size').value=String(s.fontSize);$('replacement-list').replaceChildren();data.replacements.forEach(addReplacementRow);$('config-error').hidden=true;}
+function readSettings(){return validateConfig({app:'go-viet',version:1,settings:{telex:$('cfg-telex').checked,shortcuts:$('cfg-shortcuts').checked,shortcutsInEnglish:$('cfg-english').checked,caseSensitive:$('cfg-case').checked,toneStyle:$('cfg-tone').value,fontSize:Number($('cfg-size').value)},replacements:[...$('replacement-list').children].map(row=>({trigger:row.children[1].value,value:row.children[2].value,enabled:row.children[0].checked}))});}
+function configError(e){$('config-error').textContent=e.message || 'Cấu hình không hợp lệ.';$('config-error').hidden=false;}
+$('settings-btn').onclick=()=>{active=null;populateSettings(config);$('settings-dialog').showModal();};
+$('help-btn').onclick=()=>$('help-dialog').showModal();
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());
+$('add-replacement').onclick=()=>{if($('replacement-list').children.length>=500){configError(Error('Tối đa 500 gõ tắt.'));return;}addReplacementRow();$('replacement-list').lastChild.children[1].focus();};
+$('save-config').onclick=()=>{try{config=readSettings();applyConfig();persistConfig();$('settings-dialog').close();editor.focus();}catch(e){configError(e);}};
+$('export-config').onclick=()=>{try{download(JSON.stringify(readSettings(),null,2)+'\n','go-viet-config.json','application/json;charset=utf-8');}catch(e){configError(e);}};
+$('import-config').onclick=()=>$('config-file').click();
+$('config-file').onchange=async()=>{
+  const file=$('config-file').files[0];$('config-file').value='';if(!file)return;
+  try{if(file.size>1024*1024)throw Error('Cấu hình tối đa 1 MiB.');const data=validateConfig(JSON.parse((await file.text()).replace(/^\uFEFF/,'')));populateSettings(data);toast('Đã nạp cấu hình. Nhấn Lưu để áp dụng.');}catch(e){configError(e);}
+};
+window.addEventListener('pagehide',saveDraft);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveDraft();});
+// Restore without trusting unvalidated JSON or depending on file-origin storage.
+try{const saved=localStorage.getItem(CONFIG_KEY);if(saved)config=validateConfig(JSON.parse(saved));}catch{}
+try{const saved=JSON.parse(localStorage.getItem(DOC_KEY)||'null');if(saved && typeof saved.text==='string'){editor.value=saved.text;draftName=typeof saved.name==='string'?saved.name.slice(0,100):draftName;draftFormat=['plain','markdown'].includes(saved.format)?saved.format:draftFormat;view=['edit','split','preview'].includes(saved.view)?saved.view:view;}}catch{}
+$('filename').value=draftName;lastText=editor.value;applyConfig();setFormat(draftFormat);setView(view);update();
+// Pure functions exposed for diagnostics; no network, remote assets, or dependencies.
+window.GoViet=Object.freeze({telex,markdown,validateConfig,version:'1.0'});
+})();
+</script>
+</body>
+</html>

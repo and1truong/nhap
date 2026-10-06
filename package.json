@@ -1,0 +1,13 @@
+{
+  "name": "nhap",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline Vietnamese Telex text and Markdown editor",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "playwright test"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": { "@playwright/test": "1.63.0" }
+}
