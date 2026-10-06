@@ -1,0 +1,1126 @@
+{
+  "schema": 1,
+  "labelPolicy": "Hand-labelled synthetic stress corpus, not natural frequency data. Duplicate raw strings with different intent are deliberate. Expected refers to Nháp recommended basic profile.",
+  "cases": [
+    {
+      "id": "ambiguous-01",
+      "group": "ambiguous",
+      "raw": "list",
+      "expected": "list",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-02",
+      "group": "ambiguous",
+      "raw": "last",
+      "expected": "last",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-03",
+      "group": "ambiguous",
+      "raw": "his",
+      "expected": "his",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-04",
+      "group": "ambiguous",
+      "raw": "as",
+      "expected": "as",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-05",
+      "group": "ambiguous",
+      "raw": "is",
+      "expected": "is",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-06",
+      "group": "ambiguous",
+      "raw": "of",
+      "expected": "of",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-07",
+      "group": "ambiguous",
+      "raw": "or",
+      "expected": "or",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-08",
+      "group": "ambiguous",
+      "raw": "our",
+      "expected": "our",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-09",
+      "group": "ambiguous",
+      "raw": "us",
+      "expected": "us",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-10",
+      "group": "ambiguous",
+      "raw": "gas",
+      "expected": "gas",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-11",
+      "group": "ambiguous",
+      "raw": "car",
+      "expected": "car",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-12",
+      "group": "ambiguous",
+      "raw": "bar",
+      "expected": "bar",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-13",
+      "group": "ambiguous",
+      "raw": "bass",
+      "expected": "bass",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-14",
+      "group": "ambiguous",
+      "raw": "can",
+      "expected": "can",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-15",
+      "group": "ambiguous",
+      "raw": "ban",
+      "expected": "ban",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "ambiguous-16",
+      "group": "ambiguous",
+      "raw": "than",
+      "expected": "than",
+      "intent": "literal",
+      "note": "English intent. Candidate may be Vietnamese; validity cannot resolve intent."
+    },
+    {
+      "id": "english-01",
+      "group": "english",
+      "raw": "text",
+      "expected": "text",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-02",
+      "group": "english",
+      "raw": "test",
+      "expected": "test",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-03",
+      "group": "english",
+      "raw": "tests",
+      "expected": "tests",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-04",
+      "group": "english",
+      "raw": "server",
+      "expected": "server",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-05",
+      "group": "english",
+      "raw": "service",
+      "expected": "service",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-06",
+      "group": "english",
+      "raw": "class",
+      "expected": "class",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-07",
+      "group": "english",
+      "raw": "classes",
+      "expected": "classes",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-08",
+      "group": "english",
+      "raw": "address",
+      "expected": "address",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-09",
+      "group": "english",
+      "raw": "Windows",
+      "expected": "Windows",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-10",
+      "group": "english",
+      "raw": "window",
+      "expected": "window",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-11",
+      "group": "english",
+      "raw": "browser",
+      "expected": "browser",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-12",
+      "group": "english",
+      "raw": "google",
+      "expected": "google",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-13",
+      "group": "english",
+      "raw": "github",
+      "expected": "github",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-14",
+      "group": "english",
+      "raw": "GitHub",
+      "expected": "GitHub",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-15",
+      "group": "english",
+      "raw": "redis",
+      "expected": "redis",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-16",
+      "group": "english",
+      "raw": "Redis",
+      "expected": "Redis",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-17",
+      "group": "english",
+      "raw": "Kafka",
+      "expected": "Kafka",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-18",
+      "group": "english",
+      "raw": "Postgres",
+      "expected": "Postgres",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-19",
+      "group": "english",
+      "raw": "Fastify",
+      "expected": "Fastify",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-20",
+      "group": "english",
+      "raw": "Docker",
+      "expected": "Docker",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-21",
+      "group": "english",
+      "raw": "Rust",
+      "expected": "Rust",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-22",
+      "group": "english",
+      "raw": "JavaScript",
+      "expected": "JavaScript",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-23",
+      "group": "english",
+      "raw": "Swift",
+      "expected": "Swift",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-24",
+      "group": "english",
+      "raw": "email",
+      "expected": "email",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-25",
+      "group": "english",
+      "raw": "software",
+      "expected": "software",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-26",
+      "group": "english",
+      "raw": "buffer",
+      "expected": "buffer",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-27",
+      "group": "english",
+      "raw": "worker",
+      "expected": "worker",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-28",
+      "group": "english",
+      "raw": "workflow",
+      "expected": "workflow",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-29",
+      "group": "english",
+      "raw": "session",
+      "expected": "session",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-30",
+      "group": "english",
+      "raw": "password",
+      "expected": "password",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-31",
+      "group": "english",
+      "raw": "foo",
+      "expected": "foo",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-32",
+      "group": "english",
+      "raw": "book",
+      "expected": "book",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "english-33",
+      "group": "english",
+      "raw": "guitar",
+      "expected": "guitar",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "repeat-control-01",
+      "group": "repeat-control",
+      "raw": "guitarr",
+      "expected": "guitar",
+      "intent": "control",
+      "note": "Extra key deliberately escapes a Telex transformation; not a literal English keystroke label."
+    },
+    {
+      "id": "repeat-control-02",
+      "group": "repeat-control",
+      "raw": "lisst",
+      "expected": "list",
+      "intent": "control",
+      "note": "Extra key deliberately escapes a Telex transformation; not a literal English keystroke label."
+    },
+    {
+      "id": "repeat-control-03",
+      "group": "repeat-control",
+      "raw": "lasst",
+      "expected": "last",
+      "intent": "control",
+      "note": "Extra key deliberately escapes a Telex transformation; not a literal English keystroke label."
+    },
+    {
+      "id": "repeat-control-04",
+      "group": "repeat-control",
+      "raw": "aaa",
+      "expected": "aa",
+      "intent": "control",
+      "note": "Extra key deliberately escapes a Telex transformation; not a literal English keystroke label."
+    },
+    {
+      "id": "repeat-control-05",
+      "group": "repeat-control",
+      "raw": "ddd",
+      "expected": "dd",
+      "intent": "control",
+      "note": "Extra key deliberately escapes a Telex transformation; not a literal English keystroke label."
+    },
+    {
+      "id": "repeat-control-06",
+      "group": "repeat-control",
+      "raw": "ass",
+      "expected": "as",
+      "intent": "control",
+      "note": "Extra key deliberately escapes a Telex transformation; not a literal English keystroke label."
+    },
+    {
+      "id": "names-01",
+      "group": "names",
+      "raw": "Chris",
+      "expected": "Chris",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-02",
+      "group": "names",
+      "raw": "Christopher",
+      "expected": "Christopher",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-03",
+      "group": "names",
+      "raw": "Thomas",
+      "expected": "Thomas",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-04",
+      "group": "names",
+      "raw": "Travis",
+      "expected": "Travis",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-05",
+      "group": "names",
+      "raw": "Mark",
+      "expected": "Mark",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-06",
+      "group": "names",
+      "raw": "Brisbane",
+      "expected": "Brisbane",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-07",
+      "group": "names",
+      "raw": "Houston",
+      "expected": "Houston",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-08",
+      "group": "names",
+      "raw": "Austin",
+      "expected": "Austin",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-09",
+      "group": "names",
+      "raw": "Dallas",
+      "expected": "Dallas",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-10",
+      "group": "names",
+      "raw": "Paris",
+      "expected": "Paris",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-11",
+      "group": "names",
+      "raw": "Sasha",
+      "expected": "Sasha",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-12",
+      "group": "names",
+      "raw": "Hans",
+      "expected": "Hans",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "names-13",
+      "group": "names",
+      "raw": "Murali",
+      "expected": "Murali",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "vietnamese-01",
+      "group": "vietnamese",
+      "raw": "tieengs",
+      "expected": "tiếng",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-02",
+      "group": "vietnamese",
+      "raw": "Vieetj",
+      "expected": "Việt",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-03",
+      "group": "vietnamese",
+      "raw": "dduwowngf",
+      "expected": "đường",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-04",
+      "group": "vietnamese",
+      "raw": "dduowngf",
+      "expected": "đường",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-05",
+      "group": "vietnamese",
+      "raw": "DDUOWNGF",
+      "expected": "ĐƯỜNG",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-06",
+      "group": "vietnamese",
+      "raw": "hoaf",
+      "expected": "hòa",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-07",
+      "group": "vietnamese",
+      "raw": "hoanf",
+      "expected": "hoàn",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-08",
+      "group": "vietnamese",
+      "raw": "thuyr",
+      "expected": "thủy",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-09",
+      "group": "vietnamese",
+      "raw": "quas",
+      "expected": "quá",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-10",
+      "group": "vietnamese",
+      "raw": "giaf",
+      "expected": "già",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-11",
+      "group": "vietnamese",
+      "raw": "gias",
+      "expected": "giá",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-12",
+      "group": "vietnamese",
+      "raw": "ngoaif",
+      "expected": "ngoài",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-13",
+      "group": "vietnamese",
+      "raw": "nguyeenx",
+      "expected": "nguyễn",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-14",
+      "group": "vietnamese",
+      "raw": "quoocs",
+      "expected": "quốc",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-15",
+      "group": "vietnamese",
+      "raw": "ruowuj",
+      "expected": "rượu",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-16",
+      "group": "vietnamese",
+      "raw": "tuowngr",
+      "expected": "tưởng",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-17",
+      "group": "vietnamese",
+      "raw": "laats",
+      "expected": "lất",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-18",
+      "group": "vietnamese",
+      "raw": "laast",
+      "expected": "lất",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-19",
+      "group": "vietnamese",
+      "raw": "laat",
+      "expected": "lât",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-20",
+      "group": "vietnamese",
+      "raw": "las",
+      "expected": "lá",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-21",
+      "group": "vietnamese",
+      "raw": "last",
+      "expected": "lát",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-22",
+      "group": "vietnamese",
+      "raw": "list",
+      "expected": "lít",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-23",
+      "group": "vietnamese",
+      "raw": "his",
+      "expected": "hí",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-24",
+      "group": "vietnamese",
+      "raw": "cas",
+      "expected": "cá",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-25",
+      "group": "vietnamese",
+      "raw": "cars",
+      "expected": "cá",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-26",
+      "group": "vietnamese",
+      "raw": "baor",
+      "expected": "bảo",
+      "intent": "vietnamese",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-27",
+      "group": "vietnamese",
+      "raw": "chao",
+      "expected": "chao",
+      "intent": "literal",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-28",
+      "group": "vietnamese",
+      "raw": "hom nay",
+      "expected": "hom nay",
+      "intent": "literal",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-29",
+      "group": "vietnamese",
+      "raw": "w",
+      "expected": "w",
+      "intent": "literal",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-30",
+      "group": "vietnamese",
+      "raw": "zui zer",
+      "expected": "zui zer",
+      "intent": "literal",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-31",
+      "group": "vietnamese",
+      "raw": "thik",
+      "expected": "thik",
+      "intent": "literal",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-32",
+      "group": "vietnamese",
+      "raw": "ko",
+      "expected": "ko",
+      "intent": "literal",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "vietnamese-33",
+      "group": "vietnamese",
+      "raw": "ok",
+      "expected": "ok",
+      "intent": "literal",
+      "note": "Desired Nháp basic profile; not universal Telex truth. Nonstandard slang retained literally."
+    },
+    {
+      "id": "technical-01",
+      "group": "technical",
+      "raw": "https://github.com/and1truong/nhap/issues/1",
+      "expected": "https://github.com/and1truong/nhap/issues/1",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-02",
+      "group": "technical",
+      "raw": "https://example.com/list?class=foo",
+      "expected": "https://example.com/list?class=foo",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-03",
+      "group": "technical",
+      "raw": "www.google.com",
+      "expected": "www.google.com",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-04",
+      "group": "technical",
+      "raw": "google.com",
+      "expected": "google.com",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-05",
+      "group": "technical",
+      "raw": "his@example.com",
+      "expected": "his@example.com",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-06",
+      "group": "technical",
+      "raw": "first.last@example.com",
+      "expected": "first.last@example.com",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-07",
+      "group": "technical",
+      "raw": "/usr/local/bin",
+      "expected": "/usr/local/bin",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-08",
+      "group": "technical",
+      "raw": "./src/server.ts",
+      "expected": "./src/server.ts",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-09",
+      "group": "technical",
+      "raw": "../assets/class.css",
+      "expected": "../assets/class.css",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-10",
+      "group": "technical",
+      "raw": "C:\\Users\\Chris\\notes.md",
+      "expected": "C:\\Users\\Chris\\notes.md",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-11",
+      "group": "technical",
+      "raw": "getUser",
+      "expected": "getUser",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-12",
+      "group": "technical",
+      "raw": "get_user",
+      "expected": "get_user",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-13",
+      "group": "technical",
+      "raw": "user_id",
+      "expected": "user_id",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-14",
+      "group": "technical",
+      "raw": "className",
+      "expected": "className",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-15",
+      "group": "technical",
+      "raw": "password123",
+      "expected": "password123",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-16",
+      "group": "technical",
+      "raw": "SHA256",
+      "expected": "SHA256",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-17",
+      "group": "technical",
+      "raw": "AWS",
+      "expected": "AWS",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-18",
+      "group": "technical",
+      "raw": "URL",
+      "expected": "URL",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-19",
+      "group": "technical",
+      "raw": "IS",
+      "expected": "IS",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-20",
+      "group": "technical",
+      "raw": "LAST",
+      "expected": "LAST",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "technical-21",
+      "group": "technical",
+      "raw": "LIST",
+      "expected": "LIST",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-01",
+      "group": "markdown",
+      "raw": "`list class foo`",
+      "expected": "`list class foo`",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-02",
+      "group": "markdown",
+      "raw": "``list `class` foo``",
+      "expected": "``list `class` foo``",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-03",
+      "group": "markdown",
+      "raw": "```javascript\nconst list = [];\n```",
+      "expected": "```javascript\nconst list = [];\n```",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-04",
+      "group": "markdown",
+      "raw": "~~~javascript\nconst className = \"test\";\n~~~",
+      "expected": "~~~javascript\nconst className = \"test\";\n~~~",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-05",
+      "group": "markdown",
+      "raw": "```javascript\nlist",
+      "expected": "```javascript\nlist",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-06",
+      "group": "markdown",
+      "raw": "[docs](https://github.com/list)",
+      "expected": "[docs](https://github.com/list)",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-07",
+      "group": "markdown",
+      "raw": "![text](./assets/test.svg)",
+      "expected": "![text](./assets/test.svg)",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-08",
+      "group": "markdown",
+      "raw": "<https://example.com/list>",
+      "expected": "<https://example.com/list>",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-09",
+      "group": "markdown",
+      "raw": "    const list = [];",
+      "expected": "    const list = [];",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "markdown-10",
+      "group": "markdown",
+      "raw": "> ```js\n> const list = [];\n> ```",
+      "expected": "> ```js\n> const list = [];\n> ```",
+      "intent": "literal",
+      "note": ""
+    },
+    {
+      "id": "mixed-01",
+      "group": "mixed",
+      "raw": "Tooi dungf Redis vaf Postgres",
+      "expected": "Tôi dùng Redis và Postgres",
+      "intent": "mixed",
+      "note": ""
+    },
+    {
+      "id": "mixed-02",
+      "group": "mixed",
+      "raw": "Tooi xem list vaf class",
+      "expected": "Tôi xem list và class",
+      "intent": "mixed",
+      "note": ""
+    },
+    {
+      "id": "mixed-03",
+      "group": "mixed",
+      "raw": "he is my friend",
+      "expected": "he is my friend",
+      "intent": "mixed",
+      "note": ""
+    },
+    {
+      "id": "mixed-04",
+      "group": "mixed",
+      "raw": "his car",
+      "expected": "his car",
+      "intent": "mixed",
+      "note": ""
+    },
+    {
+      "id": "mixed-05",
+      "group": "mixed",
+      "raw": "this is a test",
+      "expected": "this is a test",
+      "intent": "mixed",
+      "note": ""
+    },
+    {
+      "id": "mixed-06",
+      "group": "mixed",
+      "raw": "Tooi mua 2 list nuowcs",
+      "expected": "Tôi mua 2 lít nước",
+      "intent": "mixed",
+      "note": ""
+    },
+    {
+      "id": "mixed-07",
+      "group": "mixed",
+      "raw": "Tooi ddojc last cas",
+      "expected": "Tôi đọc lát cá",
+      "intent": "mixed",
+      "note": ""
+    },
+    {
+      "id": "mixed-08",
+      "group": "mixed",
+      "raw": "Chris owr Brisbane",
+      "expected": "Chris ở Brisbane",
+      "intent": "mixed",
+      "note": ""
+    }
+  ]
+}

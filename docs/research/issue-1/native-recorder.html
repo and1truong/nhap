@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nháp issue 1 — native IME evidence recorder</title>
+<style>body{font:17px system-ui;max-width:900px;margin:24px auto;padding:0 16px}textarea,input,button{font:inherit}textarea{box-sizing:border-box;width:100%;min-height:160px}input{width:95%;margin:8px 0}button{padding:10px;margin:8px 8px 8px 0}table{width:100%;border-collapse:collapse;font-size:13px}td,th{border:1px solid #ccc;padding:5px;overflow-wrap:anywhere}p{line-height:1.5}</style>
+<h1>Native IME evidence recorder</h1><p>Runs offline. Does not implement Telex. Use a real OS keyboard engine with the same corpus; record exact OS, browser, engine version and options. Desktop emulation does not count as native OS evidence. Enter only the synthetic corpus text, because exports include everything typed in this field.</p>
+<label>Environment and settings <input id="env" placeholder="macOS version; Safari version; OpenKey version; Telex; spellcheck; restore"></label>
+<label>Corpus case ID <input id="case" placeholder="ambiguous-01"></label>
+<textarea id="editor" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off" aria-label="Native IME test editor"></textarea>
+<button id="clear">Clear trace and editor</button><button id="export">Export JSON evidence</button>
+<p id="status">No events yet.</p><table><thead><tr><th>Event</th><th>Input type / data</th><th>Value / selection</th></tr></thead><tbody id="rows"></tbody></table>
+<script>
+const editor=document.getElementById('editor'),trace=[],rows=document.getElementById('rows');
+for(const type of ['keydown','beforeinput','input','compositionstart','compositionupdate','compositionend','keyup','focus','blur'])editor.addEventListener(type,e=>{
+ const item={time:performance.now(),type,key:e.key,inputType:e.inputType,data:e.data,isComposing:e.isComposing,cancelable:e.cancelable,isTrusted:e.isTrusted,value:editor.value,selection:[editor.selectionStart,editor.selectionEnd]};trace.push(item);
+ const tr=document.createElement('tr');for(const text of [type,JSON.stringify({inputType:item.inputType,key:item.key,data:item.data,composing:item.isComposing}),JSON.stringify({value:item.value,selection:item.selection})]){const td=document.createElement('td');td.textContent=text;tr.append(td);}rows.append(tr);document.getElementById('status').textContent=trace.length+' events';
+});
+document.getElementById('clear').onclick=()=>{trace.length=0;rows.replaceChildren();editor.value='';document.getElementById('status').textContent='No events yet.';editor.focus();};
+document.getElementById('export').onclick=()=>{const result={environment:document.getElementById('env').value,caseId:document.getElementById('case').value,userAgent:navigator.userAgent,platform:navigator.platform,scope:'Native OS IME into unmodified textarea; not Nháp product integration',finalValue:editor.value,trace};const url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='native-ime-evidence.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+</script>

@@ -1,0 +1,956 @@
+{
+  "environment": {
+    "browser": "153.0.8010.0",
+    "platform": "linux",
+    "composition": "Synthetic event injection, not OS IME evidence"
+  },
+  "results": [
+    {
+      "id": "escape-active",
+      "actions": [
+        [
+          "type",
+          "list"
+        ],
+        [
+          "key",
+          "Escape"
+        ]
+      ],
+      "expected": "list",
+      "actual": "list",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "list",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "list",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "escape-continued",
+      "actions": [
+        [
+          "type",
+          "lis"
+        ],
+        [
+          "key",
+          "Escape"
+        ],
+        [
+          "type",
+          "t"
+        ]
+      ],
+      "expected": "list",
+      "actual": "list",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "lis",
+          "text": "lí",
+          "caret": [
+            2,
+            2
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "lis",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "type",
+          "value": "t",
+          "text": "list",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "escape-next-word",
+      "actions": [
+        [
+          "type",
+          "list"
+        ],
+        [
+          "key",
+          "Escape"
+        ],
+        [
+          "type",
+          " his"
+        ]
+      ],
+      "expected": "list hí",
+      "actual": "list hí",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "list",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "list",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "type",
+          "value": " his",
+          "text": "list hí",
+          "caret": [
+            7,
+            7
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "escape-after-space",
+      "actions": [
+        [
+          "type",
+          "list "
+        ],
+        [
+          "key",
+          "Escape"
+        ]
+      ],
+      "expected": "list ",
+      "actual": "lít ",
+      "match": false,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "list ",
+          "text": "lít ",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "lít ",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "escape-before-first-letter",
+      "actions": [
+        [
+          "key",
+          "Escape"
+        ],
+        [
+          "type",
+          "list"
+        ]
+      ],
+      "expected": "list",
+      "actual": "lít",
+      "match": false,
+      "trace": [
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "",
+          "caret": [
+            0,
+            0
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "type",
+          "value": "list",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "toggle-after-conversion",
+      "actions": [
+        [
+          "type",
+          "list"
+        ],
+        [
+          "key",
+          "F2"
+        ]
+      ],
+      "expected": "list",
+      "actual": "lít",
+      "match": false,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "list",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "F2",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "false"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "toggle-before",
+      "actions": [
+        [
+          "key",
+          "F2"
+        ],
+        [
+          "type",
+          "list class foo"
+        ]
+      ],
+      "expected": "list class foo",
+      "actual": "list class foo",
+      "match": true,
+      "trace": [
+        {
+          "kind": "key",
+          "value": "F2",
+          "text": "",
+          "caret": [
+            0,
+            0
+          ],
+          "telex": "false"
+        },
+        {
+          "kind": "type",
+          "value": "list class foo",
+          "text": "list class foo",
+          "caret": [
+            14,
+            14
+          ],
+          "telex": "false"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "toggle-back-midword",
+      "actions": [
+        [
+          "key",
+          "F2"
+        ],
+        [
+          "type",
+          "lis"
+        ],
+        [
+          "key",
+          "F2"
+        ],
+        [
+          "type",
+          "t"
+        ]
+      ],
+      "expected": "list",
+      "actual": "lít",
+      "match": false,
+      "trace": [
+        {
+          "kind": "key",
+          "value": "F2",
+          "text": "",
+          "caret": [
+            0,
+            0
+          ],
+          "telex": "false"
+        },
+        {
+          "kind": "type",
+          "value": "lis",
+          "text": "lis",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "false"
+        },
+        {
+          "kind": "key",
+          "value": "F2",
+          "text": "lis",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "type",
+          "value": "t",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "escape-url-local-only",
+      "actions": [
+        [
+          "type",
+          "https://github"
+        ],
+        [
+          "key",
+          "Escape"
+        ],
+        [
+          "type",
+          ".com/list"
+        ]
+      ],
+      "expected": "https://github.com/list",
+      "actual": "https://github.com/lít",
+      "match": false,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "https://github",
+          "text": "https://github",
+          "caret": [
+            14,
+            14
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "https://github",
+          "caret": [
+            14,
+            14
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "type",
+          "value": ".com/list",
+          "text": "https://github.com/lít",
+          "caret": [
+            22,
+            22
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "pasted-url",
+      "actions": [
+        [
+          "paste",
+          "https://example.com/list"
+        ]
+      ],
+      "expected": "https://example.com/list",
+      "actual": "https://example.com/list",
+      "match": true,
+      "trace": [
+        {
+          "kind": "paste",
+          "value": "https://example.com/list",
+          "text": "https://example.com/list",
+          "caret": [
+            24,
+            24
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "pasted-url-append",
+      "actions": [
+        [
+          "paste",
+          "https://example.com/li"
+        ],
+        [
+          "type",
+          "st"
+        ]
+      ],
+      "expected": "https://example.com/list",
+      "actual": "https://example.com/lít",
+      "match": false,
+      "trace": [
+        {
+          "kind": "paste",
+          "value": "https://example.com/li",
+          "text": "https://example.com/li",
+          "caret": [
+            22,
+            22
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "type",
+          "value": "st",
+          "text": "https://example.com/lít",
+          "caret": [
+            23,
+            23
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "escape-click-continue",
+      "actions": [
+        [
+          "type",
+          "lis"
+        ],
+        [
+          "key",
+          "Escape"
+        ],
+        [
+          "click",
+          "end"
+        ],
+        [
+          "type",
+          "t"
+        ]
+      ],
+      "expected": "list",
+      "actual": "lít",
+      "match": false,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "lis",
+          "text": "lí",
+          "caret": [
+            2,
+            2
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "lis",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "click",
+          "value": "end",
+          "text": "lis",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "type",
+          "value": "t",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "restore-undo-redo",
+      "actions": [
+        [
+          "type",
+          "list"
+        ],
+        [
+          "key",
+          "Escape"
+        ],
+        [
+          "key",
+          "Control+z"
+        ],
+        [
+          "key",
+          "Control+Shift+z"
+        ]
+      ],
+      "expected": "list",
+      "actual": "list",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "list",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "list",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Control+z",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Control+Shift+z",
+          "text": "list",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "repeat-list",
+      "actions": [
+        [
+          "type",
+          "lisst"
+        ]
+      ],
+      "expected": "list",
+      "actual": "list",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "lisst",
+          "text": "list",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "repeat-guitar",
+      "actions": [
+        [
+          "type",
+          "guitarr"
+        ]
+      ],
+      "expected": "guitar",
+      "actual": "guitar",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "guitarr",
+          "text": "guitar",
+          "caret": [
+            6,
+            6
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "repeat-last-wrong-position",
+      "actions": [
+        [
+          "type",
+          "lasts"
+        ]
+      ],
+      "expected": "last",
+      "actual": "lát",
+      "match": false,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "lasts",
+          "text": "lát",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "repeat-last-right-position",
+      "actions": [
+        [
+          "type",
+          "lasst"
+        ]
+      ],
+      "expected": "last",
+      "actual": "last",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "lasst",
+          "text": "last",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "repeat-last-escape-raw",
+      "actions": [
+        [
+          "type",
+          "lasst"
+        ],
+        [
+          "key",
+          "Escape"
+        ]
+      ],
+      "expected": "lasst",
+      "actual": "lasst",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "lasst",
+          "text": "last",
+          "caret": [
+            4,
+            4
+          ],
+          "telex": "true"
+        },
+        {
+          "kind": "key",
+          "value": "Escape",
+          "text": "lasst",
+          "caret": [
+            5,
+            5
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "macro-in-inline-code",
+      "actions": [
+        [
+          "type",
+          "`;vn "
+        ]
+      ],
+      "expected": "`;vn ",
+      "actual": "`Việt Nam ",
+      "match": false,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "`;vn ",
+          "text": "`Việt Nam ",
+          "caret": [
+            10,
+            10
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "macro-in-fence",
+      "actions": [
+        [
+          "type",
+          "```\n;vn "
+        ]
+      ],
+      "expected": "```\n;vn ",
+      "actual": "```\nViệt Nam ",
+      "match": false,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "```\n;vn ",
+          "text": "```\nViệt Nam ",
+          "caret": [
+            13,
+            13
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "macro-in-English",
+      "actions": [
+        [
+          "key",
+          "F2"
+        ],
+        [
+          "type",
+          ";vn "
+        ]
+      ],
+      "expected": ";vn ",
+      "actual": "Việt Nam ",
+      "match": false,
+      "trace": [
+        {
+          "kind": "key",
+          "value": "F2",
+          "text": "",
+          "caret": [
+            0,
+            0
+          ],
+          "telex": "false"
+        },
+        {
+          "kind": "type",
+          "value": ";vn ",
+          "text": "Việt Nam ",
+          "caret": [
+            9,
+            9
+          ],
+          "telex": "false"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "native-Vietnamese-paste",
+      "actions": [
+        [
+          "paste",
+          "Tiếng Việt"
+        ]
+      ],
+      "expected": "Tiếng Việt",
+      "actual": "Tiếng Việt",
+      "match": true,
+      "trace": [
+        {
+          "kind": "paste",
+          "value": "Tiếng Việt",
+          "text": "Tiếng Việt",
+          "caret": [
+            10,
+            10
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "Vietnamese-in-code",
+      "actions": [
+        [
+          "type",
+          "`tieengs Vieetj`"
+        ]
+      ],
+      "expected": "`tiếng Việt`",
+      "actual": "`tiếng Việt`",
+      "match": true,
+      "trace": [
+        {
+          "kind": "type",
+          "value": "`tieengs Vieetj`",
+          "text": "`tiếng Việt`",
+          "caret": [
+            12,
+            12
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "composition-ascii",
+      "actions": [
+        [
+          "compose",
+          "list"
+        ]
+      ],
+      "expected": "list",
+      "actual": "lít",
+      "match": false,
+      "trace": [
+        {
+          "kind": "compose",
+          "value": "list",
+          "text": "lít",
+          "caret": [
+            3,
+            3
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    },
+    {
+      "id": "composition-native",
+      "actions": [
+        [
+          "compose",
+          "Tiếng"
+        ]
+      ],
+      "expected": "Tiếng",
+      "actual": "Tiếng",
+      "match": true,
+      "trace": [
+        {
+          "kind": "compose",
+          "value": "Tiếng",
+          "text": "Tiếng",
+          "caret": [
+            5,
+            5
+          ],
+          "telex": "true"
+        }
+      ],
+      "expectedIs": "Policy probe expectation; mismatch is not automatically a defect in current documented policy."
+    }
+  ]
+}

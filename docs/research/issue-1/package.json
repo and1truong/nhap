@@ -1,0 +1,1 @@
+{"name":"nhap-issue-1-research","private":true,"type":"module","scripts":{"replay":"node replay.mjs && node actions.mjs"},"devDependencies":{"playwright":"1.63.0"}}
